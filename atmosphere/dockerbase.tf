@@ -21,7 +21,7 @@ resource "digitalocean_droplet" "www-stable-difussion-webui" {
   image = "docker-20-04"
   name = "www-stable-difussion-webui"
   region = "nyc3"
-  size = "s-6vcpu-16gb"
+  size = "s-8vcpu-16gb"
   ssh_keys = [
     digitalocean_ssh_key.terraform.id
   ]
