@@ -16,7 +16,7 @@ variable "webmaster_email" {
 }
 
 
-resource "digitalocean_droplet" "www-wordpress" {
+resource "digitalocean_droplet" "www-stable-difussion-webui" {
   #This has pre installed docker
   image = "docker-20-04"
   name = "www-stable-difussion-webui"
