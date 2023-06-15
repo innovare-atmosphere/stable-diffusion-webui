@@ -16,10 +16,10 @@ variable "webmaster_email" {
 }
 
 
-resource "digitalocean_droplet" "www-stable-difussion-webui" {
+resource "digitalocean_droplet" "www-stable-diffussion-webui" {
   #This has pre installed docker
   image = "docker-20-04"
-  name = "www-stable-difussion-webui"
+  name = "www-stable-diffussion-webui"
   region = "nyc3"
   size = "s-8vcpu-16gb"
   ssh_keys = [
@@ -44,8 +44,8 @@ resource "digitalocean_droplet" "www-stable-difussion-webui" {
       "apt install -y nginx",
       "apt install -y python3-certbot-nginx",
       "apt install -y git",
-      # create stable-difussion-webui installation directory
-      "mkdir /root/stable-difussion-webui-docker",
+      # create stable-diffussion-webui installation directory
+      "mkdir /root/stable-diffussion-webui-docker",
     ]
   }
 
@@ -61,9 +61,9 @@ resource "digitalocean_droplet" "www-stable-difussion-webui" {
     inline = [
       "export PATH=$PATH:/usr/bin",
       # run compose
-      "cd /root/stable-difussion-webui-docker",
+      "cd /root/stable-diffussion-webui-docker",
       "git clone https://github.com/AbdBarho/stable-diffusion-webui-docker.git",
-      "cd /root/stable-difussion-webui-docker/stable-difussion-webui-docker",
+      "cd /root/stable-diffussion-webui-docker/stable-diffussion-webui-docker",
       "docker-compose --profile download up --build",
       "docker-compose --profile auto-cpu up --build",
       "rm /etc/nginx/sites-enabled/default",
